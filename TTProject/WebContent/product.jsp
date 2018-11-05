@@ -160,7 +160,7 @@ h3.pakage {
 </head>
 
 <body>
-<%
+	<%
 	Connection conn = null;
 	Statement stmt = null;
 	try {
@@ -170,7 +170,10 @@ h3.pakage {
 			out.println("연결불가<BR>");
 		stmt = conn.createStatement(); // statement 객체호출
 		ResultSet rs = stmt.executeQuery("select * from product");
-		if(rs.next()) {
+		String id = request.getParameter("ProdID");
+		int pid = Integer.parseInt(id);
+		while(rs.next()) {
+			if(rs.getInt("prod_ID")==pid) {
 			String productName = rs.getString("prod_Name");
 			String prodectPrice = rs.getString("prod_Price");
 			String prodectPrice2 = rs.getString("prod_Price2");
@@ -179,6 +182,7 @@ h3.pakage {
 			request.setAttribute("PROD_PRICE", prodectPrice);
 			request.setAttribute("PROD_PRICE2", prodectPrice2);
 			request.setAttribute("PROD_DELIV", productDeliv);
+			}
 		}
 	}
 	finally {
@@ -197,8 +201,9 @@ h3.pakage {
 				<td height="20" border="0">
 					<table width="960px">
 						<tr>
-							<td align="right"><a href="#">로그인</a> | <a href="#">회원가입</a>
-								| <a href="#">마이페이지</a> | <a href="#">주문/배송조회</a></td>
+							<td align="right">
+								<a href="#">로그인</a> | <a href="#">회원가입</a> | <a href="#">마이페이지</a> | <a href="#">주문/배송조회</a>
+							</td>
 						</tr>
 					</table>
 				</td>
@@ -225,8 +230,7 @@ h3.pakage {
 					</div></li>
 				<li class="menu1"><a href="#">탁구라켓</a>
 					<div class="content1">
-						<a href="#">펜홀더 라켓</a> <a href="#">쉐이크 라켓</a> <a href="#">중국펜
-							/ 연습라켓</a>
+						<a href="#">펜홀더 라켓</a> <a href="#">쉐이크 라켓</a> <a href="#">중국펜 / 연습라켓</a>
 					</div></li>
 				<li class="menu1"><a href="#">menu2</a></li>
 				<li class="menu1"><a href="#">menu3</a></li>
@@ -275,9 +279,7 @@ h3.pakage {
 			</div>
 			<div class="btnexp">
 				<form action=mainpage.html>
-					<input class="btn_buy" type="submit" value="바로구매하기"> <input
-						class="btn_back" type="button" value="이전으로 돌아가기"
-						onClick="history.go(-1)">
+					<input class="btn_buy" type="submit" value="바로구매하기"> <input class="btn_back" type="button" value="이전으로 돌아가기" onClick="history.go(-1)">
 				</form>
 			</div>
 		</div>
@@ -289,18 +291,17 @@ h3.pakage {
 		<div id="contents2">
 			<h3 class="pakage">상품 상세설명</h3>
 			<div id="explain">
-				<img src="image/product1_1.PNG" width="960px" alt="설명이미지"> <img
-					src="image/product1_2.PNG" width="960px" alt="설명이미지"> <img
-					src="image/product1_3.PNG" width="960px" alt="설명이미지"> <img
-					src="image/product1_4.PNG" width="960px" alt="설명이미지"> <img
-					src="image/product1_5.PNG" width="960px" alt="설명이미지"> <img
-					src="image/product1_6.PNG" width="960px" alt="설명이미지">
+				<img src="image/product1_1.PNG" width="960px" alt="설명이미지">
+				<img src="image/product1_2.PNG" width="960px" alt="설명이미지">
+				<img src="image/product1_3.PNG" width="960px" alt="설명이미지">
+				<img src="image/product1_4.PNG" width="960px" alt="설명이미지">
+				<img src="image/product1_5.PNG" width="960px" alt="설명이미지">
+				<img src="image/product1_6.PNG" width="960px" alt="설명이미지">
 			</div>
 		</div>
 	</div>
 	<div id="footer">
-		<div class="copyright">COPYRIGHTⓒ2018 Cha Hae Wun for
-			WebProject. ALL rights reserved.</div>
+		<div class="copyright">COPYRIGHTⓒ2018 Cha Hae Wun for WebProject. ALL rights reserved.</div>
 	</div>
 </body>
 </html>
