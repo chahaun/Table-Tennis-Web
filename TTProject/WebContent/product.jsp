@@ -193,6 +193,13 @@ h3.pakage {
 			conn.close();
 		} catch(Exception ignored) {}
 	}
+	
+	String e1  = "image/prod_image/product"+request.getParameter("ProdID")+"_1.PNG";
+	String e2  = "image/prod_image/product"+request.getParameter("ProdID")+"_2.PNG";
+	String e3  = "image/prod_image/product"+request.getParameter("ProdID")+"_3.PNG";
+	String e4  = "image/prod_image/product"+request.getParameter("ProdID")+"_4.PNG";
+	String e5  = "image/prod_image/product"+request.getParameter("ProdID")+"_5.PNG";
+	String e6  = "image/prod_image/product"+request.getParameter("ProdID")+"_6.PNG";
 %>
 	<!-- 헤더 시작 -->
 	<div id="container">
@@ -285,18 +292,18 @@ h3.pakage {
 		</div>
 
 		<div id="contents1">
-			<img src="image/product1_2.PNG" width="500px" alt="라켓이미지">
+			<img src="<%=e2 %>" width="500px" alt="라켓이미지">
 		</div>
 
 		<div id="contents2">
 			<h3 class="pakage">상품 상세설명</h3>
 			<div id="explain">
-				<img src="image/product1_1.PNG" width="960px" alt="설명이미지">
-				<img src="image/product1_2.PNG" width="960px" alt="설명이미지">
-				<img src="image/product1_3.PNG" width="960px" alt="설명이미지">
-				<img src="image/product1_4.PNG" width="960px" alt="설명이미지">
-				<img src="image/product1_5.PNG" width="960px" alt="설명이미지">
-				<img src="image/product1_6.PNG" width="960px" alt="설명이미지">
+				<img src="<%=e1 %>" width="960px" alt="설명이미지">
+				<img src="<%=e2 %>" width="960px" alt="설명이미지">
+				<img src="<%=e3 %>" width="960px" alt="설명이미지">
+				<img src="<%=e4 %>" width="960px" alt="설명이미지">
+				<img src="<%=e5 %>" width="960px" alt="설명이미지">
+				<img src="<%=e6 %>" width="960px" alt="설명이미지">
 			</div>
 		</div>
 	</div>

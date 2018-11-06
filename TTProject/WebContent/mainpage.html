@@ -120,12 +120,6 @@ h3.pakage {
 	color: #8c8c8c;
 }
 </style>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-<script>
-   function setProductID(index) {
-    window.location.href = "product.jsp?ProdID=" + index;
-   }
-  </script>
 </head>
 
 <body>
@@ -195,20 +189,18 @@ h3.pakage {
 		</div>
 
 		<div id="contents1">
-			<form action="product.jsp">
-				<img src="image/mainr1.jpg" width="710px" alt="라켓이미지" onClick="setProductID(1)">
-			</form>
+			<a href="/TTProject/product.jsp?ProdID=1"><img src="image/mainr1.jpg" width="710px" alt="라켓이미지"></a>
 		</div>
 
 		<div id="contents2">
 			<h3 class="pakage">추천 패키지</h3>
 			<div id="box1">
-				<img src="image/pakage1.PNG" width="450px" alt="라켓이미지">
-				<img src="image/pakage2.PNG" width="450px" alt="라켓이미지">
+				<a href="/TTProject/product.jsp?ProdID=2"><img src="image/pakage1.PNG" width="450px" alt="라켓이미지"></a>
+				<a href="/TTProject/product.jsp?ProdID=3"><img src="image/pakage2.PNG" width="450px" alt="라켓이미지"></a>
 			</div>
 			<div id="box2">
-				<img src="image/pakage3.PNG" width="450px" alt="라켓이미지">
-				<img src="image/pakage4.PNG" width="450px" alt="라켓이미지">
+				<a href="/TTProject/product.jsp?ProdID=4"><img src="image/pakage3.PNG" width="450px" alt="라켓이미지"></a>
+				<a href="/TTProject/product.jsp?ProdID=5"><img src="image/pakage4.PNG" width="450px" alt="라켓이미지"></a>
 			</div>
 		</div>
 	</div>
