@@ -285,7 +285,7 @@ h3.pakage {
 				</table>
 			</div>
 			<div class="btnexp">
-				<form action=mainpage.html>
+				<form action=mainpage.jsp>
 					<input class="btn_buy" type="submit" value="바로구매하기"> <input class="btn_back" type="button" value="이전으로 돌아가기" onClick="history.go(-1)">
 				</form>
 			</div>
