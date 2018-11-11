@@ -161,46 +161,63 @@ h3.pakage {
 
 <body>
 	<%
-	Connection conn = null;
-	Statement stmt = null;
-	try {
-		Class.forName("com.mysql.jdbc.Driver");
-		conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/shopping?serverTimezone=UTC","root","1234");
-		if(conn==null) 
-			out.println("연결불가<BR>");
-		stmt = conn.createStatement(); // statement 객체호출
-		ResultSet rs = stmt.executeQuery("select * from product");
-		String id = request.getParameter("ProdID");
-		int pid = Integer.parseInt(id);
-		while(rs.next()) {
-			if(rs.getInt("prod_ID")==pid) {
-			String productName = rs.getString("prod_Name");
-			String prodectPrice = rs.getString("prod_Price");
-			String prodectPrice2 = rs.getString("prod_Price2");
-			String productDeliv = rs.getString("prod_Deliv");
-			request.setAttribute("PROD_NAME", productName);
-			request.setAttribute("PROD_PRICE", prodectPrice);
-			request.setAttribute("PROD_PRICE2", prodectPrice2);
-			request.setAttribute("PROD_DELIV", productDeliv);
+		HttpSession sessionGet = request.getSession(); // session이 존재하면 해당 session을 리턴(존재하지 않으면 새롭게 session 생성)
+		// getAttribute() 메서드는 Object 를 리턴하므로 String 으로 형변환을 해주어야 한다.
+		String id = (String) sessionGet.getAttribute("sessionId"); // name 이 sessionId 의 value 값 리턴
+		String logText = ""; // 로그인, 로그아웃 표시
+		String logUrl = ""; // 로그인, 로그아웃 경로
+		boolean login = id != null ? true : false; // 로그인 여부
+		if (login) { // 로그인 되어 있을 경우, 표시될 내용 설정
+			id = id + "님";
+			logText = "로그아웃";
+			logUrl = "/TTProject/logout.jsp";
+		} else { // 로그아웃 상태일 때의 표시될 내용 설정
+			id = "";
+			logText = "로그인";
+			logUrl = "/TTProject/login.html";
+		}
+
+		Connection conn = null;
+		Statement stmt = null;
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/shopping?serverTimezone=UTC", "root", "1234");
+			if (conn == null)
+				out.println("연결불가<BR>");
+			stmt = conn.createStatement(); // statement 객체호출
+			ResultSet rs = stmt.executeQuery("select * from product");
+			String prod_id = request.getParameter("ProdID");
+			int pid = Integer.parseInt(prod_id);
+			while (rs.next()) {
+				if (rs.getInt("prod_ID") == pid) {
+					String productName = rs.getString("prod_Name");
+					String prodectPrice = rs.getString("prod_Price");
+					String prodectPrice2 = rs.getString("prod_Price2");
+					String productDeliv = rs.getString("prod_Deliv");
+					request.setAttribute("PROD_NAME", productName);
+					request.setAttribute("PROD_PRICE", prodectPrice);
+					request.setAttribute("PROD_PRICE2", prodectPrice2);
+					request.setAttribute("PROD_DELIV", productDeliv);
+				}
+			}
+		} finally {
+			try {
+				stmt.close();
+			} catch (Exception ignored) {
+			}
+			try {
+				conn.close();
+			} catch (Exception ignored) {
 			}
 		}
-	}
-	finally {
-		try {
-			stmt.close();
-		} catch(Exception ignored) {}
-		try {
-			conn.close();
-		} catch(Exception ignored) {}
-	}
-	
-	String e1  = "image/prod_image/product"+request.getParameter("ProdID")+"_1.PNG";
-	String e2  = "image/prod_image/product"+request.getParameter("ProdID")+"_2.PNG";
-	String e3  = "image/prod_image/product"+request.getParameter("ProdID")+"_3.PNG";
-	String e4  = "image/prod_image/product"+request.getParameter("ProdID")+"_4.PNG";
-	String e5  = "image/prod_image/product"+request.getParameter("ProdID")+"_5.PNG";
-	String e6  = "image/prod_image/product"+request.getParameter("ProdID")+"_6.PNG";
-%>
+
+		String e1 = "image/prod_image/product" + request.getParameter("ProdID") + "_1.PNG";
+		String e2 = "image/prod_image/product" + request.getParameter("ProdID") + "_2.PNG";
+		String e3 = "image/prod_image/product" + request.getParameter("ProdID") + "_3.PNG";
+		String e4 = "image/prod_image/product" + request.getParameter("ProdID") + "_4.PNG";
+		String e5 = "image/prod_image/product" + request.getParameter("ProdID") + "_5.PNG";
+		String e6 = "image/prod_image/product" + request.getParameter("ProdID") + "_6.PNG";
+	%>
 	<!-- 헤더 시작 -->
 	<div id="container">
 		<table width="100%" border="0">
@@ -208,8 +225,8 @@ h3.pakage {
 				<td height="20" border="0">
 					<table width="960px">
 						<tr>
-							<td align="right">
-								<a href="#">로그인</a> | <a href="#">회원가입</a> | <a href="#">마이페이지</a> | <a href="#">주문/배송조회</a>
+							<td align="right"><%=id%><a href=<%=logUrl%>><%=logText%></a>
+								| <a href="#">회원가입</a> | <a href="#">마이페이지</a> | <a href="#">주문/배송조회</a>
 							</td>
 						</tr>
 					</table>
@@ -237,7 +254,8 @@ h3.pakage {
 					</div></li>
 				<li class="menu1"><a href="#">탁구라켓</a>
 					<div class="content1">
-						<a href="#">펜홀더 라켓</a> <a href="#">쉐이크 라켓</a> <a href="#">중국펜 / 연습라켓</a>
+						<a href="#">펜홀더 라켓</a> <a href="#">쉐이크 라켓</a> <a href="#">중국펜
+							/ 연습라켓</a>
 					</div></li>
 				<li class="menu1"><a href="#">menu2</a></li>
 				<li class="menu1"><a href="#">menu3</a></li>
@@ -286,29 +304,31 @@ h3.pakage {
 			</div>
 			<div class="btnexp">
 				<form action=mainpage.jsp>
-					<input class="btn_buy" type="submit" value="바로구매하기"> <input class="btn_back" type="button" value="이전으로 돌아가기" onClick="history.go(-1)">
+					<input class="btn_buy" type="submit" value="바로구매하기"> <input
+						class="btn_back" type="button" value="이전으로 돌아가기"
+						onClick="history.go(-1)">
 				</form>
 			</div>
 		</div>
 
 		<div id="contents1">
-			<img src="<%=e2 %>" width="500px" alt="라켓이미지">
+			<img src="<%=e2%>" width="500px" alt="라켓이미지">
 		</div>
 
 		<div id="contents2">
 			<h3 class="pakage">상품 상세설명</h3>
 			<div id="explain">
-				<img src="<%=e1 %>" width="960px" alt="설명이미지">
-				<img src="<%=e2 %>" width="960px" alt="설명이미지">
-				<img src="<%=e3 %>" width="960px" alt="설명이미지">
-				<img src="<%=e4 %>" width="960px" alt="설명이미지">
-				<img src="<%=e5 %>" width="960px" alt="설명이미지">
-				<img src="<%=e6 %>" width="960px" alt="설명이미지">
+				<img src="<%=e1%>" width="960px" alt="설명이미지"> <img
+					src="<%=e2%>" width="960px" alt="설명이미지"> <img src="<%=e3%>"
+					width="960px" alt="설명이미지"> <img src="<%=e4%>" width="960px"
+					alt="설명이미지"> <img src="<%=e5%>" width="960px" alt="설명이미지">
+				<img src="<%=e6%>" width="960px" alt="설명이미지">
 			</div>
 		</div>
 	</div>
 	<div id="footer">
-		<div class="copyright">COPYRIGHTⓒ2018 Cha Hae Wun for WebProject. ALL rights reserved.</div>
+		<div class="copyright">COPYRIGHTⓒ2018 Cha Hae Wun for
+			WebProject. ALL rights reserved.</div>
 	</div>
 </body>
 </html>

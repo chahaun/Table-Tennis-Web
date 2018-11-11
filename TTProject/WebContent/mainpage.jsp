@@ -151,7 +151,7 @@ h3.pakage {
 						<tr>
 							<td align="right">
 							<%=id %><a href=<%=logUrl %>><%=logText %></a>
-								 | <a href="#">회원가입</a> | <a href="#">마이페이지</a> | <a href="#">주문/배송조회</a>
+								 | <a href="/TTProject/registration.html">회원가입</a> | <a href="#">마이페이지</a> | <a href="#">주문/배송조회</a>
 							</td>
 						</tr>
 					</table>
@@ -215,10 +215,12 @@ h3.pakage {
 		<div id="contents2">
 			<h3 class="pakage">추천 패키지</h3>
 			<div id="box1">
-				<a href="/TTProject/product.jsp?ProdID=2"><img src="image/pakage1.PNG" width="450px" alt="라켓이미지"></a> <a href="/TTProject/product.jsp?ProdID=3"><img src="image/pakage2.PNG" width="450px" alt="라켓이미지"></a>
+				<a href="/TTProject/product.jsp?ProdID=2"><img src="image/pakage1.PNG" width="450px" alt="라켓이미지"></a> 
+				<a href="/TTProject/product.jsp?ProdID=3"><img src="image/pakage2.PNG" width="450px" alt="라켓이미지"></a>
 			</div>
 			<div id="box2">
-				<a href="/TTProject/product.jsp?ProdID=4"><img src="image/pakage3.PNG" width="450px" alt="라켓이미지"></a> <a href="/TTProject/product.jsp?ProdID=5"><img src="image/pakage4.PNG" width="450px" alt="라켓이미지"></a>
+				<a href="/TTProject/product.jsp?ProdID=4"><img src="image/pakage3.PNG" width="450px" alt="라켓이미지"></a> 
+				<a href="/TTProject/product.jsp?ProdID=5"><img src="image/pakage4.PNG" width="450px" alt="라켓이미지"></a>
 			</div>
 		</div>
 	</div>
