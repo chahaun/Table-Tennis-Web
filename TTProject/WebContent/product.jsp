@@ -6,6 +6,10 @@
 <meta http-equiv="content-type" content="text/html; charset=euc-kr">
 <title>상품 정보 보기</title>
 <style>
+a {
+  text-decoration: none;
+}
+
 h1.logo {
 	margin-left: 350px;
 	color: orange;
@@ -239,7 +243,7 @@ h3.pakage {
 		<div id="header">
 			<header>
 				<div class="inner">
-					<h1 class="logo">Ping-Pong Market</h1>
+					<a href="/TTProject/mainpage.jsp"><h1 class="logo">Ping-Pong Market</h1></a>
 				</div>
 			</header>
 		</div>

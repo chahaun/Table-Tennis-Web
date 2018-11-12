@@ -4,6 +4,10 @@
 <meta http-equiv="content-type" content="text/html; charset=euc-kr">
 <title>탁구용품 쇼핑몰</title>
 <style>
+a {
+  text-decoration: none;
+}
+
 h1.logo {
 	margin-left: 350px;
 	color: orange;
@@ -104,7 +108,7 @@ div {
 					<table width="960px">
 						<tr>
 							<td align="right">
-								<a href="/TTProject/login.html">로그인</a> | <a href="#">회원가입</a>
+								<a href="/TTProject/login.html">로그인</a> | <a href="/TTProject/registration.html">회원가입</a>
 								| <a href="#">마이페이지</a> | <a href="#">주문/배송조회</a></td>
 						</tr>
 					</table>
@@ -117,7 +121,7 @@ div {
 		<div id="header">
 			<header>
 				<div class="inner">
-					<h1 class="logo">Ping-Pong Market</h1>
+					<a href="/TTProject/mainpage.jsp"><h1 class="logo">Ping-Pong Market</h1></a>
 				</div>
 			</header>
 		</div>
@@ -218,7 +222,7 @@ div {
 		<ul>
 		<li style="text-decoration: none; list-style: none;">
 		<input type="submit" value='회원가입' style="color: #fff; font-size: 14px; width: 250px; height: 44px; background: #f75f52;"> 
-		<input type="reset" value='취소' style="color: #000; font-size: 14px; width: 250px; height: 44px; background: #ffffff;"> <br>
+		<input type="reset" value='취소' style="color: #000; font-size: 14px; width: 250px; height: 44px; background: #ffffff;" onClick="history.go(-1)"> <br>
 		</li>
 		</ul>
 	</form>
