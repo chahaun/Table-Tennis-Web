@@ -1,1 +1,1 @@
-SELECT * FROM shopping.product;
+select * from shopping.user where userID = 'chahaun';

@@ -172,7 +172,7 @@ h3.pakage {
 		String logUrl = ""; // 로그인, 로그아웃 경로
 		boolean login = id != null ? true : false; // 로그인 여부
 		if (login) { // 로그인 되어 있을 경우, 표시될 내용 설정
-			id = id + "님";
+			id = id + "님  ";
 			logText = "로그아웃";
 			logUrl = "/TTProject/logout.jsp";
 		} else { // 로그아웃 상태일 때의 표시될 내용 설정
