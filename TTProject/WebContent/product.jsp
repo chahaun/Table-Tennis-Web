@@ -308,9 +308,8 @@ h3.pakage {
 			</div>
 			<div class="btnexp">
 				<form action=mainpage.jsp>
-					<input class="btn_buy" type="submit" value="바로구매하기"> <input
-						class="btn_back" type="button" value="이전으로 돌아가기"
-						onClick="history.go(-1)">
+					<input class="btn_buy" type="submit" value="바로구매하기"> 
+					<input class="btn_back" type="button" value="이전으로 돌아가기" onClick="history.go(-1)">
 				</form>
 			</div>
 		</div>
@@ -322,10 +321,11 @@ h3.pakage {
 		<div id="contents2">
 			<h3 class="pakage">상품 상세설명</h3>
 			<div id="explain">
-				<img src="<%=e1%>" width="960px" alt="설명이미지"> <img
-					src="<%=e2%>" width="960px" alt="설명이미지"> <img src="<%=e3%>"
-					width="960px" alt="설명이미지"> <img src="<%=e4%>" width="960px"
-					alt="설명이미지"> <img src="<%=e5%>" width="960px" alt="설명이미지">
+				<img src="<%=e1%>" width="960px" alt="설명이미지"> 
+				<img src="<%=e2%>" width="960px" alt="설명이미지"> 
+				<img src="<%=e3%>" width="960px" alt="설명이미지">
+				<img src="<%=e4%>" width="960px" alt="설명이미지"> 
+				<img src="<%=e5%>" width="960px" alt="설명이미지">
 				<img src="<%=e6%>" width="960px" alt="설명이미지">
 			</div>
 		</div>
