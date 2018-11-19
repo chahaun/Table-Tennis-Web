@@ -33,7 +33,7 @@ div {
 }
 
 #contents1 {
-	width: 500px;
+	width: 960px;
 	float: left;
 }
 
@@ -119,32 +119,6 @@ h3.title {
 	margin-left: 5px;
 }
 
-.btn_buy {
-	font-weight: bold;
-	background-color: red;
-	vertical-align: middle;
-	font-size: 20px;
-	color: #ffffff;
-	width: 196px;
-	height: 60px;
-	border-color: #659dab;
-	border-width: 2px;
-	border-style: solid;
-}
-
-.btn_back {
-	font-weight: bold;
-	background-color: #ffffff;
-	vertical-align: middle;
-	font-size: 20px;
-	color: #000000;
-	width: 196px;
-	height: 60px;
-	border-color: #659dab;
-	border-width: 2px;
-	border-style: solid;
-}
-
 h3.pakage {
 	margin-left: 20px;
 	color: blue;
@@ -214,7 +188,7 @@ h3.pakage {
 			} catch (Exception ignored) {
 			}
 		}
-
+		
 		String e1 = "image/prod_image/product" + request.getParameter("ProdID") + "_1.PNG";
 		String e2 = "image/prod_image/product" + request.getParameter("ProdID") + "_2.PNG";
 		String e3 = "image/prod_image/product" + request.getParameter("ProdID") + "_3.PNG";
@@ -280,62 +254,64 @@ h3.pakage {
 			</ul>
 		</div>
 		<!-- 메뉴바 종료 -->
-
-		<div id="sidebar">
-			<div>
-				<table width="100%" border="0">
-					<h3 class="title">${PROD_NAME}</h3>
-
-					<tr>
-						<td height="0" bgcolor="#000000"></td>
-					</tr>
-				</table>
-			</div>
-			<div class="mainexp">
-				<h3 class="exp1">판매가</h3>
-				<h4 class="exp2">${PROD_PRICE}원</h4>
-				<table width="100%">
-					<tr>
-						<td height="0" bgcolor="#EAEAEA"></td>
-					</tr>
-				</table>
-				<table width="100%">
-					<h3 class="exp1">소비자가</h3>
-					<h4 class="exp3">${PROD_PRICE2}원</h4>
-					<tr>
-						<td height="0" bgcolor="#EAEAEA"></td>
-					</tr>
-				</table>
-				<table width="100%">
-					<h3 class="exp1">배송비</h3>
-					<h4 class="exp3">${PROD_DELIV}</h4>
-					<tr>
-						<td height="0" bgcolor="#EAEAEA"></td>
-					</tr>
-				</table>
-			</div>
-			<div class="btnexp">
-				<form action=mainpage.jsp>
-					<input class="btn_buy" type="submit" value="바로구매하기"> 
-					<input class="btn_back" type="button" value="이전으로 돌아가기" onClick="history.go(-1)">
-				</form>
-			</div>
-		</div>
-
+		
 		<div id="contents1">
-			<img src="<%=e2%>" width="500px" alt="라켓이미지">
-		</div>
-
-		<div id="contents2">
-			<h3 class="pakage">상품 상세설명</h3>
-			<div id="explain">
-				<img src="<%=e1%>" width="960px" alt="설명이미지"> 
-				<img src="<%=e2%>" width="960px" alt="설명이미지"> 
-				<img src="<%=e3%>" width="960px" alt="설명이미지">
-				<img src="<%=e4%>" width="960px" alt="설명이미지"> 
-				<img src="<%=e5%>" width="960px" alt="설명이미지">
-				<img src="<%=e6%>" width="960px" alt="설명이미지">
-			</div>
+			<table class="table1" cellpadding=10>
+				<tr>
+					<td><a href="/TTProject/product.jsp?ProdID=1"><img src="<%=e1%>" width="200px" alt="라켓이미지"></a></td>
+					<td>
+						<b>코쿠타구 제논 로제나 세트</b><br><br>
+						169,000원 <br><br>
+						배송비 2,500원 <br> <br> <br> <br>
+						구매 24<br>
+					</td>
+				</tr>
+				<tr>
+					<td><a href="/TTProject/product.jsp?ProdID=1"><img src="<%=e2%>" width="200px" alt="라켓이미지"></a></td>
+					<td>
+						<b>Kokutaku Zenon</b><br><br>
+						169,000원 <br><br>
+						배송비 2,500원 <br> <br> <br> <br>
+						구매 4<br>
+					</td>
+				</tr>
+				<tr>
+					<td><a href="/TTProject/product.jsp?ProdID=1"><img src="<%=e3%>" width="200px" alt="라켓이미지"></a></td>
+					<td>
+						<b>Shake Table Tenis Racket</b><br><br>
+						169,000원 <br><br>
+						배송비 2,500원 <br> <br> <br> <br>
+						구매 11<br>
+					</td>
+				</tr>
+				<tr>
+					<td><a href="/TTProject/product.jsp?ProdID=1"><img src="<%=e4%>" width="200px" alt="라켓이미지"></a></td>
+					<td>
+						<b>Kokutaku Rozena</b><br><br>
+						169,000원 <br><br>
+						배송비 2,500원 <br> <br> <br> <br>
+						구매 21<br>
+					</td>
+				</tr>
+				<tr>
+					<td><a href="/TTProject/product.jsp?ProdID=1"><img src="<%=e5%>" width="200px" alt="라켓이미지"></a></td>
+					<td>
+						<b>코쿠타구 제논 로제나 세트</b><br><br>
+						169,000원 <br><br>
+						배송비 2,500원 <br> <br> <br> <br>
+						구매 78<br>
+					</td>
+				</tr>
+				<tr>
+					<td><a href="/TTProject/product.jsp?ProdID=1"><img src="<%=e6%>" width="200px" alt="라켓이미지"></a></td>
+					<td>
+						<b>코쿠타구 제논 로제나 세트</b><br><br>
+						169,000원 <br><br>
+						배송비 2,500원 <br> <br> <br> <br>
+						구매 54<br>
+					</td>
+				</tr>
+			</table>
 		</div>
 	</div>
 	<div id="footer">
