@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=euc-kr">
-<title>상품 정보 보기</title>
+<title>장바구니</title>
 <style>
 a {
   text-decoration: none;
@@ -25,21 +25,8 @@ div {
 	margin: 0 auto;
 }
 
-#sidebar {
-	width: 400px;
-	padding: 20px;
-	float: right;
-	margin-bottom: 20px;
-}
-
-#contents1 {
-	width: 500px;
-	float: left;
-}
-
-#contents2 {
-	width: 960px;
-	float: left;
+#title {
+	margin-top: 20px;
 	margin-bottom: 20px;
 }
 
@@ -119,32 +106,6 @@ h3.title {
 	margin-left: 5px;
 }
 
-.btn_buy {
-	font-weight: bold;
-	background-color: red;
-	vertical-align: middle;
-	font-size: 20px;
-	color: #ffffff;
-	width: 196px;
-	height: 60px;
-	border-color: #659dab;
-	border-width: 2px;
-	border-style: solid;
-}
-
-.btn_back {
-	font-weight: bold;
-	background-color: #ffffff;
-	vertical-align: middle;
-	font-size: 20px;
-	color: #000000;
-	width: 196px;
-	height: 60px;
-	border-color: #659dab;
-	border-width: 2px;
-	border-style: solid;
-}
-
 h3.pakage {
 	margin-left: 20px;
 	color: blue;
@@ -180,7 +141,7 @@ h3.pakage {
 			logText = "로그인";
 			logUrl = "/TTProject/login.html";
 		}
-
+		/*
 		Connection conn = null;
 		Statement stmt = null;
 		try {
@@ -196,11 +157,9 @@ h3.pakage {
 				if (rs.getInt("prod_ID") == pid) {
 					String productName = rs.getString("prod_Name");
 					String prodectPrice = rs.getString("prod_Price");
-					String prodectPrice2 = rs.getString("prod_Price2");
 					String productDeliv = rs.getString("prod_Deliv");
 					request.setAttribute("PROD_NAME", productName);
 					request.setAttribute("PROD_PRICE", prodectPrice);
-					request.setAttribute("PROD_PRICE2", prodectPrice2);
 					request.setAttribute("PROD_DELIV", productDeliv);
 				}
 			}
@@ -214,13 +173,7 @@ h3.pakage {
 			} catch (Exception ignored) {
 			}
 		}
-
-		String e1 = "image/prod_image/product" + request.getParameter("ProdID") + "_1.PNG";
-		String e2 = "image/prod_image/product" + request.getParameter("ProdID") + "_2.PNG";
-		String e3 = "image/prod_image/product" + request.getParameter("ProdID") + "_3.PNG";
-		String e4 = "image/prod_image/product" + request.getParameter("ProdID") + "_4.PNG";
-		String e5 = "image/prod_image/product" + request.getParameter("ProdID") + "_5.PNG";
-		String e6 = "image/prod_image/product" + request.getParameter("ProdID") + "_6.PNG";
+		*/
 	%>
 	<!-- 헤더 시작 -->
 	<div id="container">
@@ -285,63 +238,11 @@ h3.pakage {
 			</ul>
 		</div>
 		<!-- 메뉴바 종료 -->
-
-		<div id="sidebar">
-			<div>
-				<table width="100%" border="0">
-					<h3 class="title">${PROD_NAME}</h3>
-
-					<tr>
-						<td height="0" bgcolor="#000000"></td>
-					</tr>
-				</table>
-			</div>
-			<div class="mainexp">
-				<h3 class="exp1">판매가</h3>
-				<h4 class="exp2">${PROD_PRICE}원</h4>
-				<table width="100%">
-					<tr>
-						<td height="0" bgcolor="#EAEAEA"></td>
-					</tr>
-				</table>
-				<table width="100%">
-					<h3 class="exp1">소비자가</h3>
-					<h4 class="exp3">${PROD_PRICE2}원</h4>
-					<tr>
-						<td height="0" bgcolor="#EAEAEA"></td>
-					</tr>
-				</table>
-				<table width="100%">
-					<h3 class="exp1">배송비</h3>
-					<h4 class="exp3">${PROD_DELIV}</h4>
-					<tr>
-						<td height="0" bgcolor="#EAEAEA"></td>
-					</tr>
-				</table>
-			</div>
-			<div class="btnexp">
-				<form action=mainpage.jsp>
-					<input class="btn_buy" type="submit" value="바로구매하기"> 
-					<input class="btn_back" type="button" value="이전으로 돌아가기" onClick="history.go(-1)">
-				</form>
-			</div>
+		
+		<div id="title">
+			<img src="image/bucket_title.png" width="960px" alt="라켓이미지">
 		</div>
-
-		<div id="contents1">
-			<img src="<%=e2%>" width="500px" alt="라켓이미지">
-		</div>
-
-		<div id="contents2">
-			<h3 class="pakage">상품 상세설명</h3>
-			<div id="explain">
-				<img src="<%=e1%>" width="960px" alt="설명이미지"> 
-				<img src="<%=e2%>" width="960px" alt="설명이미지"> 
-				<img src="<%=e3%>" width="960px" alt="설명이미지">
-				<img src="<%=e4%>" width="960px" alt="설명이미지"> 
-				<img src="<%=e5%>" width="960px" alt="설명이미지">
-				<img src="<%=e6%>" width="960px" alt="설명이미지">
-			</div>
-		</div>
+		
 	</div>
 	<div id="footer">
 		<div class="copyright">COPYRIGHTⓒ2018 Cha Hae Wun for
@@ -349,4 +250,3 @@ h3.pakage {
 	</div>
 </body>
 </html>
-

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=euc-kr">
-<title>상품 정보 보기</title>
+<title>상품 목록 보기</title>
 <style>
 a {
   text-decoration: none;
@@ -233,24 +233,29 @@ h3.pakage {
 				</li>
 				<li class="menu1"><a href="/TTProject/productList.jsp?ProdID=1">펜홀더 라켓</a>
 					<div class="content1">
-						<a href="#">상품 1</a> <a href="#">상품 2</a> <a href="#">상품 3</a>
+						<a href="/TTProject/product.jsp?ProdID=3">코르벨</a> 
+						<a href="/TTProject/product.jsp?ProdID=4">프리모락</a> 
+						<a href="/TTProject/product.jsp?ProdID=5">티모볼ALC</a>
 					</div>
 				</li>
 				<li class="menu1"><a href="#">쉐이크 라켓</a>
 					<div class="content1">
-						<a href="#">상품 1</a> <a href="#">상품 2</a> <a href="#">상품 3</a>
+						<a href="/TTProject/product.jsp?ProdID=2">제논</a> 
+						<a href="/TTProject/product.jsp?ProdID=3">코르벨</a> 
+						<a href="/TTProject/product.jsp?ProdID=5">티모볼ALC</a>
 					</div>
 				</li>
 				<li class="menu1"><a href="#">중국펜 라켓</a>
 					<div class="content1">
-						<a href="#">상품 1</a> <a href="#">상품 2</a> <a href="#">상품 3</a>
+						<a href="/TTProject/product.jsp?ProdID=3">코르벨</a> 
+						<a href="/TTProject/product.jsp?ProdID=4">프리모락</a> 
+						<a href="/TTProject/product.jsp?ProdID=5">티모볼ALC</a>
 					</div>
 				</li>
 				<li class="menu1"><a href="#">탁구러버</a></li>
 				<li class="menu1"><a href="#">탁구공</a></li>
 				<li class="menu1"><a href="#">의류&탁구화</a></li>
 				<li class="menu1"><a href="#">탁구대</a></li>
-				<li class="menu1"><a href="#">오시는길</a></li>
 			</ul>
 		</div>
 		<!-- 메뉴바 종료 -->
@@ -260,16 +265,16 @@ h3.pakage {
 				<tr>
 					<td><a href="/TTProject/product.jsp?ProdID=1"><img src="<%=e1%>" width="200px" alt="라켓이미지"></a></td>
 					<td>
-						<b>코쿠타구 제논 로제나 세트</b><br><br>
+						<a href="/TTProject/product.jsp?ProdID=1"><b>코쿠타구 제논 로제나 세트</b></a><br><br>
 						169,000원 <br><br>
-						배송비 2,500원 <br> <br> <br> <br>
+						배송비 2,500원 <br> <br> <br> <br> 
 						구매 24<br>
 					</td>
 				</tr>
 				<tr>
 					<td><a href="/TTProject/product.jsp?ProdID=1"><img src="<%=e2%>" width="200px" alt="라켓이미지"></a></td>
 					<td>
-						<b>Kokutaku Zenon</b><br><br>
+						<a href="/TTProject/product.jsp?ProdID=1"><b>Kokutaku Zenon</b></a><br><br>
 						169,000원 <br><br>
 						배송비 2,500원 <br> <br> <br> <br>
 						구매 4<br>
@@ -278,7 +283,7 @@ h3.pakage {
 				<tr>
 					<td><a href="/TTProject/product.jsp?ProdID=1"><img src="<%=e3%>" width="200px" alt="라켓이미지"></a></td>
 					<td>
-						<b>Shake Table Tenis Racket</b><br><br>
+						<a href="/TTProject/product.jsp?ProdID=1"><b>Shake Table Tenis Racket</b></a><br><br>
 						169,000원 <br><br>
 						배송비 2,500원 <br> <br> <br> <br>
 						구매 11<br>
@@ -287,7 +292,7 @@ h3.pakage {
 				<tr>
 					<td><a href="/TTProject/product.jsp?ProdID=1"><img src="<%=e4%>" width="200px" alt="라켓이미지"></a></td>
 					<td>
-						<b>Kokutaku Rozena</b><br><br>
+						<a href="/TTProject/product.jsp?ProdID=1"><b>Kokutaku Rozena</b></a><br><br>
 						169,000원 <br><br>
 						배송비 2,500원 <br> <br> <br> <br>
 						구매 21<br>
@@ -296,7 +301,7 @@ h3.pakage {
 				<tr>
 					<td><a href="/TTProject/product.jsp?ProdID=1"><img src="<%=e5%>" width="200px" alt="라켓이미지"></a></td>
 					<td>
-						<b>코쿠타구 제논 로제나 세트</b><br><br>
+						<a href="/TTProject/product.jsp?ProdID=1"><b>코쿠타구 제논 로제나 세트</b></a><br><br>
 						169,000원 <br><br>
 						배송비 2,500원 <br> <br> <br> <br>
 						구매 78<br>
@@ -305,7 +310,7 @@ h3.pakage {
 				<tr>
 					<td><a href="/TTProject/product.jsp?ProdID=1"><img src="<%=e6%>" width="200px" alt="라켓이미지"></a></td>
 					<td>
-						<b>코쿠타구 제논 로제나 세트</b><br><br>
+						<a href="/TTProject/product.jsp?ProdID=1"><b>코쿠타구 제논 로제나 세트</b></a><br><br>
 						169,000원 <br><br>
 						배송비 2,500원 <br> <br> <br> <br>
 						구매 54<br>
