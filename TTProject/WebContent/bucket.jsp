@@ -146,7 +146,7 @@ h3.pakage {
 		
 		Connection conn = null;
 		Statement stmt = null;
-		try {
+		//try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/shopping?serverTimezone=UTC", "root", "1234");
 			if (conn == null)
@@ -169,17 +169,18 @@ h3.pakage {
 			request.setAttribute("PROD_Name", arrName[0]);
 			request.setAttribute("PROD_Price", arrPrice[0]);
 			request.setAttribute("PROD_Deliv", arrDeliv[0]);
+			/*
 		} finally {
 			try {
-				stmt.close();
+				//stmt.close();
 			} catch (Exception ignored) {
 			}
 			try {
-				conn.close();
+				//conn.close();
 			} catch (Exception ignored) {
 			}
 		}
-		
+		*/
 	%>
 	<!-- 헤더 시작 -->
 	<div id="container">
@@ -259,12 +260,13 @@ h3.pakage {
 					</tr>
 				</thead>
 				
-				<c:forEach var="i" begin="0" end="${cnt}">
+				<%int i=0; %>
+				<c:forEach var="ii" begin="0" end="${cnt}">
 					<tr>
-						<th>${PROD_ID}</th>
-						<th>${PROD_Name}</th>
-						<th>${PROD_Price}</th>
-						<th>${PROD_Deliv}</th>
+						<th><%=arrID[i] %></th>
+						<th><%=arrName[i] %></th>
+						<th><%=arrPrice[i] %></th>
+						<th><%=arrDeliv[i] %></th>
 					</tr>
 				</c:forEach>
 				
