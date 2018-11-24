@@ -165,10 +165,7 @@ h3.pakage {
 				arrDeliv[cnt] = rs.getString("prod_Deliv");
 				cnt++;
 			}
-			request.setAttribute("PROD_ID", arrID[0]);
-			request.setAttribute("PROD_Name", arrName[0]);
-			request.setAttribute("PROD_Price", arrPrice[0]);
-			request.setAttribute("PROD_Deliv", arrDeliv[0]);
+			
 			/*
 		} finally {
 			try {
@@ -182,6 +179,7 @@ h3.pakage {
 		}
 		*/
 	%>
+	<%int i=0; %>
 	<!-- 헤더 시작 -->
 	<div id="container">
 		<table width="100%" border="0">
@@ -260,14 +258,15 @@ h3.pakage {
 					</tr>
 				</thead>
 				
-				<%int i=0; %>
-				<c:forEach var="ii" begin="0" end="${cnt}">
+				
+				<c:forEach var="ii" begin="1" end="<%=cnt %>">
 					<tr>
 						<th><%=arrID[i] %></th>
 						<th><%=arrName[i] %></th>
 						<th><%=arrPrice[i] %></th>
 						<th><%=arrDeliv[i] %></th>
 					</tr>
+					<% i++; %>
 				</c:forEach>
 				
 				<tfoot>
