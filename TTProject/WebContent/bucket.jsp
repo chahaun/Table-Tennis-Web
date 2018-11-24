@@ -1,5 +1,7 @@
 <%@page contentType="text/html; charset=euc-kr"%>
 <%@page import="java.sql.*"%>
+<%@taglib prefix= "c" uri= "http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +9,7 @@
 <title>장바구니</title>
 <style>
 a {
-  text-decoration: none;
+	text-decoration: none;
 }
 
 h1.logo {
@@ -141,7 +143,7 @@ h3.pakage {
 			logText = "로그인";
 			logUrl = "/TTProject/login.html";
 		}
-		/*
+		
 		Connection conn = null;
 		Statement stmt = null;
 		try {
@@ -150,19 +152,23 @@ h3.pakage {
 			if (conn == null)
 				out.println("연결불가<BR>");
 			stmt = conn.createStatement(); // statement 객체호출
-			ResultSet rs = stmt.executeQuery("select * from product");
-			String prod_id = request.getParameter("ProdID");
-			int pid = Integer.parseInt(prod_id);
+			String arrID[] = new String[20];
+			String arrName[] = new String[20];
+			String arrPrice[] = new String[20];
+			String arrDeliv[] = new String[20];
+			int cnt=0;
+			ResultSet rs = stmt.executeQuery("select * from bucket");
 			while (rs.next()) {
-				if (rs.getInt("prod_ID") == pid) {
-					String productName = rs.getString("prod_Name");
-					String prodectPrice = rs.getString("prod_Price");
-					String productDeliv = rs.getString("prod_Deliv");
-					request.setAttribute("PROD_NAME", productName);
-					request.setAttribute("PROD_PRICE", prodectPrice);
-					request.setAttribute("PROD_DELIV", productDeliv);
-				}
+				arrID[cnt] = rs.getString("prod_ID");
+				arrName[cnt] = rs.getString("prod_Name");
+				arrPrice[cnt] = rs.getString("prod_Price");
+				arrDeliv[cnt] = rs.getString("prod_Deliv");
+				cnt++;
 			}
+			request.setAttribute("PROD_ID", arrID[0]);
+			request.setAttribute("PROD_Name", arrName[0]);
+			request.setAttribute("PROD_Price", arrPrice[0]);
+			request.setAttribute("PROD_Deliv", arrDeliv[0]);
 		} finally {
 			try {
 				stmt.close();
@@ -173,7 +179,7 @@ h3.pakage {
 			} catch (Exception ignored) {
 			}
 		}
-		*/
+		
 	%>
 	<!-- 헤더 시작 -->
 	<div id="container">
@@ -196,7 +202,8 @@ h3.pakage {
 		<div id="header">
 			<header>
 				<div class="inner">
-					<a href="/TTProject/mainpage.jsp"><h1 class="logo">Ping-Pong Market</h1></a>
+					<a href="/TTProject/mainpage.jsp"><h1 class="logo">Ping-Pong
+							Market</h1></a>
 				</div>
 			</header>
 		</div>
@@ -208,29 +215,26 @@ h3.pakage {
 				<li class="menu1"><a href="#">홈페이지 소개</a>
 					<div class="content1">
 						<a href="/TTProject/notice.html">공지사항</a>
-					</div>
-				</li>
-				<li class="menu1"><a href="/TTProject/productList.jsp?ProdID=1">펜홀더 라켓</a>
+					</div></li>
+				<li class="menu1"><a href="/TTProject/productList.jsp?ProdID=1">펜홀더
+						라켓</a>
 					<div class="content1">
-						<a href="/TTProject/product.jsp?ProdID=3">코르벨</a> 
-						<a href="/TTProject/product.jsp?ProdID=4">프리모락</a> 
-						<a href="/TTProject/product.jsp?ProdID=5">티모볼ALC</a>
-					</div>
-				</li>
+						<a href="/TTProject/product.jsp?ProdID=3">코르벨</a> <a
+							href="/TTProject/product.jsp?ProdID=4">프리모락</a> <a
+							href="/TTProject/product.jsp?ProdID=5">티모볼ALC</a>
+					</div></li>
 				<li class="menu1"><a href="#">쉐이크 라켓</a>
 					<div class="content1">
-						<a href="/TTProject/product.jsp?ProdID=2">제논</a> 
-						<a href="/TTProject/product.jsp?ProdID=3">코르벨</a> 
-						<a href="/TTProject/product.jsp?ProdID=5">티모볼ALC</a>
-					</div>
-				</li>
+						<a href="/TTProject/product.jsp?ProdID=2">제논</a> <a
+							href="/TTProject/product.jsp?ProdID=3">코르벨</a> <a
+							href="/TTProject/product.jsp?ProdID=5">티모볼ALC</a>
+					</div></li>
 				<li class="menu1"><a href="#">중국펜 라켓</a>
 					<div class="content1">
-						<a href="/TTProject/product.jsp?ProdID=3">코르벨</a> 
-						<a href="/TTProject/product.jsp?ProdID=4">프리모락</a> 
-						<a href="/TTProject/product.jsp?ProdID=5">티모볼ALC</a>
-					</div>
-				</li>
+						<a href="/TTProject/product.jsp?ProdID=3">코르벨</a> <a
+							href="/TTProject/product.jsp?ProdID=4">프리모락</a> <a
+							href="/TTProject/product.jsp?ProdID=5">티모볼ALC</a>
+					</div></li>
 				<li class="menu1"><a href="#">탁구러버</a></li>
 				<li class="menu1"><a href="#">탁구공</a></li>
 				<li class="menu1"><a href="#">의류&탁구화</a></li>
@@ -238,11 +242,44 @@ h3.pakage {
 			</ul>
 		</div>
 		<!-- 메뉴바 종료 -->
-		
+
 		<div id="title">
-			<img src="image/bucket_title.png" width="960px" alt="라켓이미지">
+			<img src="image/bucket_title.png" width="960px" alt="타이틀이미지">
 		</div>
-		
+
+		<div id="mainlist">
+			<hr />
+			<table border=0>
+				<thead>
+					<tr bgcolor="#e1e0e0">
+						<th>상품번호</th>
+						<th width = 240px>상품명</th>
+						<th width = 240px>상품 가격</th>
+						<th width = 240px>배송비</th>
+					</tr>
+				</thead>
+				
+				<c:forEach var="i" begin="0" end="${cnt}">
+					<tr>
+						<th>${PROD_ID}</th>
+						<th>${PROD_Name}</th>
+						<th>${PROD_Price}</th>
+						<th>${PROD_Deliv}</th>
+					</tr>
+				</c:forEach>
+				
+				<tfoot>
+					<tr bgcolor="#e1e0e0">
+						<th width = 800px colspan="3"></th>
+						<th>총 가격 : 198,000원</th>
+					</tr>
+				</tfoot>
+			</table>
+
+			<hr />
+			<a href="/TTProject/mainpage.jsp">메인페이지</a>
+		</div>
+
 	</div>
 	<div id="footer">
 		<div class="copyright">COPYRIGHTⓒ2018 Cha Hae Wun for
