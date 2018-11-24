@@ -155,7 +155,7 @@ h3.pakage {
 						<tr>
 							<td align="right">
 							<%=id %><a href=<%=logUrl %>><%=logText %></a>
-								 | <a href="/TTProject/registration.html">회원가입</a> | <a href="#">장바구니</a> | <a href="#">주문/배송조회</a>
+								 | <a href="/TTProject/registration.html">회원가입</a> | <a href="/TTProject/bucket.jsp">장바구니</a> | <a href="#">주문/배송조회</a>
 							</td>
 						</tr>
 					</table>

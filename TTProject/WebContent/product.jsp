@@ -198,6 +198,7 @@ h3.pakage {
 					String prodectPrice = rs.getString("prod_Price");
 					String prodectPrice2 = rs.getString("prod_Price2");
 					String productDeliv = rs.getString("prod_Deliv");
+					request.setAttribute("PROD_ID", prod_id);
 					request.setAttribute("PROD_NAME", productName);
 					request.setAttribute("PROD_PRICE", prodectPrice);
 					request.setAttribute("PROD_PRICE2", prodectPrice2);
@@ -319,9 +320,13 @@ h3.pakage {
 					</tr>
 				</table>
 			</div>
+			<%
+				String p_id = request.getParameter("ProdID");
+				session.setAttribute("P_ID", p_id);
+			%>
 			<div class="btnexp">
-				<form action=mainpage.jsp>
-					<input class="btn_buy" type="submit" value="바로구매하기"> 
+				<form action=addBucket.jsp>
+					<input class="btn_buy" type="submit" value="바로구매하기">
 					<input class="btn_back" type="button" value="이전으로 돌아가기" onClick="history.go(-1)">
 				</form>
 			</div>
