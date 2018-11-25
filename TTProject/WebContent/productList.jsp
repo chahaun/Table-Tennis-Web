@@ -1,5 +1,6 @@
 <%@page contentType="text/html; charset=euc-kr"%>
 <%@page import="java.sql.*"%>
+<%@taglib prefix= "fmt" uri= "http://java.sun.com/jsp/jstl/fmt" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -169,8 +170,8 @@ h3.pakage {
 			while (rs.next()) {
 				if (rs.getInt("prod_ID") == pid) {
 					String productName = rs.getString("prod_Name");
-					String prodectPrice = rs.getString("prod_Price");
-					String prodectPrice2 = rs.getString("prod_Price2");
+					int prodectPrice = rs.getInt("prod_Price");
+					int prodectPrice2 = rs.getInt("prod_Price2");
 					String productDeliv = rs.getString("prod_Deliv");
 					request.setAttribute("PROD_NAME", productName);
 					request.setAttribute("PROD_PRICE", prodectPrice);
@@ -284,8 +285,8 @@ h3.pakage {
 					<td><a href="/TTProject/product.jsp?ProdID=1"><img src="<%=e3%>" width="200px" alt="라켓이미지"></a></td>
 					<td>
 						<a href="/TTProject/product.jsp?ProdID=1"><b>Shake Table Tenis Racket</b></a><br><br>
-						169,000원 <br><br>
-						배송비 2,500원 <br> <br> <br> <br>
+						145,000원 <br><br>
+						배송비 무료배송 <br> <br> <br> <br>
 						구매 11<br>
 					</td>
 				</tr>
@@ -293,7 +294,7 @@ h3.pakage {
 					<td><a href="/TTProject/product.jsp?ProdID=1"><img src="<%=e4%>" width="200px" alt="라켓이미지"></a></td>
 					<td>
 						<a href="/TTProject/product.jsp?ProdID=1"><b>Kokutaku Rozena</b></a><br><br>
-						169,000원 <br><br>
+						112,000원 <br><br>
 						배송비 2,500원 <br> <br> <br> <br>
 						구매 21<br>
 					</td>
@@ -302,7 +303,7 @@ h3.pakage {
 					<td><a href="/TTProject/product.jsp?ProdID=1"><img src="<%=e5%>" width="200px" alt="라켓이미지"></a></td>
 					<td>
 						<a href="/TTProject/product.jsp?ProdID=1"><b>코쿠타구 제논 로제나 세트</b></a><br><br>
-						169,000원 <br><br>
+						285,000원 <br><br>
 						배송비 2,500원 <br> <br> <br> <br>
 						구매 78<br>
 					</td>
@@ -311,7 +312,7 @@ h3.pakage {
 					<td><a href="/TTProject/product.jsp?ProdID=1"><img src="<%=e6%>" width="200px" alt="라켓이미지"></a></td>
 					<td>
 						<a href="/TTProject/product.jsp?ProdID=1"><b>코쿠타구 제논 로제나 세트</b></a><br><br>
-						169,000원 <br><br>
+						368,000원 <br><br>
 						배송비 2,500원 <br> <br> <br> <br>
 						구매 54<br>
 					</td>

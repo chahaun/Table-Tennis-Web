@@ -1,5 +1,7 @@
 <%@page contentType="text/html; charset=euc-kr"%>
 <%@page import="java.sql.*"%>
+<%@taglib prefix= "fmt" uri= "http://java.sun.com/jsp/jstl/fmt" %> 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -195,8 +197,8 @@ h3.pakage {
 			while (rs.next()) {
 				if (rs.getInt("prod_ID") == pid) {
 					String productName = rs.getString("prod_Name");
-					String prodectPrice = rs.getString("prod_Price");
-					String prodectPrice2 = rs.getString("prod_Price2");
+					int prodectPrice = rs.getInt("prod_Price");
+					int prodectPrice2 = rs.getInt("prod_Price2");
 					String productDeliv = rs.getString("prod_Deliv");
 					request.setAttribute("PROD_ID", prod_id);
 					request.setAttribute("PROD_NAME", productName);
@@ -299,7 +301,7 @@ h3.pakage {
 			</div>
 			<div class="mainexp">
 				<h3 class="exp1">판매가</h3>
-				<h4 class="exp2">${PROD_PRICE}원</h4>
+				<h4 class="exp2"><fmt:formatNumber value="${PROD_PRICE}" pattern="###,###"/>원</h4>
 				<table width="100%">
 					<tr>
 						<td height="0" bgcolor="#EAEAEA"></td>
@@ -307,7 +309,7 @@ h3.pakage {
 				</table>
 				<table width="100%">
 					<h3 class="exp1">소비자가</h3>
-					<h4 class="exp3">${PROD_PRICE2}원</h4>
+					<h4 class="exp3"><fmt:formatNumber value="${PROD_PRICE2}" pattern="###,###"/>원</h4>
 					<tr>
 						<td height="0" bgcolor="#EAEAEA"></td>
 					</tr>

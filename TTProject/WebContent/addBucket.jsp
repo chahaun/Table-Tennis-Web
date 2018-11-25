@@ -17,16 +17,16 @@
 		ResultSet rs = stmt.executeQuery("select * from product");
 		int pid = Integer.parseInt(productId);
 		String productName = null;
-		String prodectPrice = null;
+		int prodectPrice = 0;
 		String productDeliv = null;
 		while (rs.next()) {
 			if (rs.getInt("prod_ID") == pid) {
 				productName = rs.getString("prod_Name");
-				prodectPrice = rs.getString("prod_Price");
+				prodectPrice = rs.getInt("prod_Price");
 				productDeliv = rs.getString("prod_Deliv");
 			}
 		}
-		String cmd = String.format("insert into bucket(prod_ID, prod_Name, prod_Price, prod_deliv) values('%d', '%s', '%s', '%s');"
+		String cmd = String.format("insert into bucket(prod_ID, prod_Name, prod_Price, prod_deliv) values('%d', '%s', '%d', '%s');"
 		, pid, productName, prodectPrice, productDeliv);
 		
 		int rowNum = stmt.executeUpdate(cmd);

@@ -1,6 +1,7 @@
 <%@page contentType="text/html; charset=euc-kr"%>
 <%@page import="java.sql.*"%>
-<%@taglib prefix= "c" uri= "http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix= "fmt" uri= "http://java.sun.com/jsp/jstl/fmt" %> 
 
 <!DOCTYPE html>
 <html>
@@ -92,20 +93,34 @@ h3.title {
 	color: darkslategray;
 }
 
-.exp1 {
-	color: dimgrey;
-}
-
-.exp2 {
-	color: red;
+.btn_buy {
 	font-weight: bold;
+	background-color: red;
+	vertical-align: middle;
 	font-size: 20px;
-	margin-left: 5px;
+	color: #ffffff;
+	width: 196px;
+	height: 60px;
+	border-color: #659dab;
+	border-width: 2px;
+	border-style: solid;
 }
 
-.exp3 {
-	color: black;
-	margin-left: 5px;
+.btn_back {
+	font-weight: bold;
+	background-color: #ffffff;
+	vertical-align: middle;
+	font-size: 20px;
+	color: #000000;
+	width: 196px;
+	height: 60px;
+	border-color: #659dab;
+	border-width: 2px;
+	border-style: solid;
+}
+
+.btnexp {
+	margin-left: 270px;
 }
 
 h3.pakage {
@@ -154,15 +169,17 @@ h3.pakage {
 			stmt = conn.createStatement(); // statement 객체호출
 			String arrID[] = new String[20];
 			String arrName[] = new String[20];
-			String arrPrice[] = new String[20];
+			int arrPrice[] = new int[20];
 			String arrDeliv[] = new String[20];
+			int allPrice = 0;
 			int cnt=0;
 			ResultSet rs = stmt.executeQuery("select * from bucket");
 			while (rs.next()) {
 				arrID[cnt] = rs.getString("prod_ID");
 				arrName[cnt] = rs.getString("prod_Name");
-				arrPrice[cnt] = rs.getString("prod_Price");
+				arrPrice[cnt] = rs.getInt("prod_Price");
 				arrDeliv[cnt] = rs.getString("prod_Deliv");
+				allPrice += arrPrice[cnt];
 				cnt++;
 			}
 			
@@ -263,7 +280,7 @@ h3.pakage {
 					<tr>
 						<th><%=arrID[i] %></th>
 						<th><%=arrName[i] %></th>
-						<th><%=arrPrice[i] %></th>
+						<th><fmt:formatNumber value="<%=arrPrice[i]%>" pattern="###,###"/></th>
 						<th><%=arrDeliv[i] %></th>
 					</tr>
 					<% i++; %>
@@ -272,13 +289,18 @@ h3.pakage {
 				<tfoot>
 					<tr bgcolor="#e1e0e0">
 						<th width = 800px colspan="3"></th>
-						<th>총 가격 : 198,000원</th>
+						<th>총 가격 : <fmt:formatNumber value="<%=allPrice%>" pattern="###,###"/>원</th>
 					</tr>
 				</tfoot>
 			</table>
 
 			<hr />
-			<a href="/TTProject/mainpage.jsp">메인페이지</a>
+			<div class="btnexp">
+				<form action=mainpage.jsp>
+					<input class="btn_buy" type="submit" value="최종구매하기">
+					<input class="btn_back" type="button" value="이전으로 돌아가기" onClick="history.go(-1)">
+				</form>
+			</div>
 		</div>
 
 	</div>
