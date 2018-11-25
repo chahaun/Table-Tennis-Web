@@ -64,10 +64,6 @@ div {
 	color: #fff;
 }
 
-.menu1 a:hover {
-	background:;
-}
-
 .content1 {
 	background: #f9f9f9;
 	position: absolute;
@@ -121,11 +117,6 @@ h3.title {
 
 .btnexp {
 	margin-left: 270px;
-}
-
-h3.pakage {
-	margin-left: 20px;
-	color: blue;
 }
 
 .copyright {
@@ -269,12 +260,12 @@ h3.pakage {
 				<thead>
 					<tr bgcolor="#e1e0e0">
 						<th>상품번호</th>
-						<th width = 240px>상품명</th>
-						<th width = 240px>상품 가격</th>
-						<th width = 240px>배송비</th>
+						<th width = 230px>상품명</th>
+						<th width = 230px>상품 가격</th>
+						<th width = 230px>배송비</th>
+						<th width = 40px>선택</th>
 					</tr>
 				</thead>
-				
 				
 				<c:forEach var="ii" begin="1" end="<%=cnt %>">
 					<tr>
@@ -282,6 +273,7 @@ h3.pakage {
 						<th><%=arrName[i] %></th>
 						<th><fmt:formatNumber value="<%=arrPrice[i]%>" pattern="###,###"/></th>
 						<th><%=arrDeliv[i] %></th>
+						<th style="font-size: 11px;"><a href="/TTProject/deleteBucket.jsp?ProdID=<%=arrID[i]%>">삭제</a></th>
 					</tr>
 					<% i++; %>
 				</c:forEach>
