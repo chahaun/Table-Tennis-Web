@@ -1,7 +1,7 @@
 <%@page contentType="text/html; charset=euc-kr"%>
 <%@page import="java.sql.*"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib prefix= "fmt" uri= "http://java.sun.com/jsp/jstl/fmt" %> 
+<%@taglib prefix= "fmt" uri= "http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html>
@@ -116,7 +116,7 @@ h3.title {
 }
 
 .btnexp {
-	margin-left: 270px;
+	margin-left: 360px;
 }
 
 .copyright {
@@ -251,19 +251,18 @@ h3.title {
 		<!-- 메뉴바 종료 -->
 
 		<div id="title">
-			<img src="image/bucket_title.png" width="960px" alt="타이틀이미지">
+			<h3>구매완료</h3>
 		</div>
 
 		<div id="mainlist">
 			<hr />
 			<table border=0>
 				<thead>
-					<tr bgcolor="#e1e0e0">
+					<tr bgcolor="#1DDB16">
 						<th>상품번호</th>
-						<th width = 230px>상품명</th>
-						<th width = 230px>상품 가격</th>
-						<th width = 230px>배송비</th>
-						<th width = 40px>선택</th>
+						<th width = 270px>상품명</th>
+						<th width = 270px>상품 가격</th>
+						<th width = 270px>배송비</th>
 					</tr>
 				</thead>
 				
@@ -273,32 +272,23 @@ h3.title {
 						<th><%=arrName[i] %></th>
 						<th><fmt:formatNumber value="<%=arrPrice[i]%>" pattern="###,###"/></th>
 						<th><%=arrDeliv[i] %></th>
-						<th style="font-size: 11px;"><a href="/TTProject/deleteBucket.jsp?ProdID=<%=arrID[i]%>">삭제</a></th>
 					</tr>
 					<% i++; %>
 				</c:forEach>
 				
 				<tfoot>
-					<tr bgcolor="#e1e0e0">
-						<th width = 800px colspan="3"></th>
+					<tr bgcolor="#1DDB16">
+						<th width = 800px colspan="3">배송지 : ㅁㄴㅇㅀ호</th>
 						<th>총 가격 : <fmt:formatNumber value="<%=allPrice%>" pattern="###,###"/>원</th>
 					</tr>
 				</tfoot>
 			</table>
+			<hr />
 			
-
 			<div>
-				<form action=purchase.jsp>
-					<br>
-					<table>
-						<tr>
-							<th>배송지 입력 : <input type=text name=House size=60></th>
-						</tr>
-					</table>
-					<hr />
+				<form action=mainpage.jsp>
 					<div class="btnexp">
-						<input class="btn_buy" type="submit" value="최종구매하기">
-						<input class="btn_back" type="button" value="이전으로 돌아가기" onClick="history.go(-1)">
+						<input class="btn_back" type="submit" value="메인으로 돌아가기">
 					</div>
 				</form>
 			</div>
