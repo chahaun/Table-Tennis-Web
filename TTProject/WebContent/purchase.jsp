@@ -158,13 +158,14 @@ h3.title {
 			if (conn == null)
 				out.println("연결불가<BR>");
 			stmt = conn.createStatement(); // statement 객체호출
+			String house = request.getParameter("House");
 			String arrID[] = new String[20];
 			String arrName[] = new String[20];
 			int arrPrice[] = new int[20];
 			String arrDeliv[] = new String[20];
 			int allPrice = 0;
 			int cnt=0;
-			ResultSet rs = stmt.executeQuery("select * from bucket");
+			ResultSet rs = stmt.executeQuery("select * from purchase");
 			while (rs.next()) {
 				arrID[cnt] = rs.getString("prod_ID");
 				arrName[cnt] = rs.getString("prod_Name");
@@ -195,8 +196,11 @@ h3.title {
 				<td height="20" border="0">
 					<table width="960px">
 						<tr>
-							<td align="right"><%=id%><a href=<%=logUrl%>><%=logText%></a>
-								| <a href="#">회원가입</a> | <a href="#">장바구니</a> | <a href="#">주문/배송조회</a>
+							<td align="right">
+							<%=id %><a href=<%=logUrl %>><%=logText %></a>
+								 | <a href="/TTProject/registration.html">회원가입</a> 
+								 | <a href="/TTProject/bucket.jsp">장바구니</a> 
+								 | <a href="/TTProject/purchase.jsp">주문/배송조회</a>
 							</td>
 						</tr>
 					</table>
@@ -278,7 +282,7 @@ h3.title {
 				
 				<tfoot>
 					<tr bgcolor="#1DDB16">
-						<th width = 800px colspan="3">배송지 : ㅁㄴㅇㅀ호</th>
+						<th width = 800px colspan="3">배송지 : <%=house%></th>
 						<th>총 가격 : <fmt:formatNumber value="<%=allPrice%>" pattern="###,###"/>원</th>
 					</tr>
 				</tfoot>

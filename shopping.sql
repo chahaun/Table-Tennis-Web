@@ -1,15 +1,15 @@
 CREATE DATABASE  IF NOT EXISTS `shopping` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `shopping`;
--- MySQL dump 10.13  Distrib 8.0.13, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: localhost    Database: shopping
 -- ------------------------------------------------------
--- Server version	8.0.13
+-- Server version	5.7.20-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
- SET NAMES utf8 ;
+/*!40101 SET NAMES utf8 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -23,7 +23,7 @@ USE `shopping`;
 
 DROP TABLE IF EXISTS `bucket`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `bucket` (
   `prod_ID` int(11) NOT NULL,
   `prod_Name` varchar(50) NOT NULL,
@@ -47,7 +47,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `product`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `product` (
   `prod_ID` int(11) NOT NULL,
   `prod_Name` varchar(50) NOT NULL,
@@ -70,12 +70,36 @@ INSERT INTO `product` VALUES (1,'KOKUTAKU 이진권 ALC 탁구라켓',139000,185
 UNLOCK TABLES;
 
 --
+-- Table structure for table `purchase`
+--
+
+DROP TABLE IF EXISTS `purchase`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `purchase` (
+  `prod_ID` int(11) NOT NULL,
+  `prod_Name` varchar(50) NOT NULL,
+  `prod_Price` int(20) NOT NULL,
+  `prod_deliv` varchar(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `purchase`
+--
+
+LOCK TABLES `purchase` WRITE;
+/*!40000 ALTER TABLE `purchase` DISABLE KEYS */;
+/*!40000 ALTER TABLE `purchase` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `user`
 --
 
 DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `user` (
   `name` varchar(20) DEFAULT NULL,
   `rrn` varchar(20) DEFAULT NULL,
@@ -108,4 +132,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-25 22:07:23
+-- Dump completed on 2018-11-27  0:59:01

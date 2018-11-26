@@ -14,25 +14,32 @@
 		if (conn == null)
 			throw new Exception("DB 연결불가");
 		stmt = conn.createStatement(); // statement 객체호출
-		ResultSet rs = stmt.executeQuery("select * from product");
-		int pid = Integer.parseInt(productId);
-		String productName = null;
-		int prodectPrice = 0;
-		String productDeliv = null;
+		String house = request.getParameter("House");
+		String url = "purchase.jsp?House="+house;
+		String arrID[] = new String[20];
+		String arrName[] = new String[20];
+		int arrPrice[] = new int[20];
+		String arrDeliv[] = new String[20];
+		int allPrice = 0;
+		int cnt=0;
+		ResultSet rs = stmt.executeQuery("select * from purchase");
 		while (rs.next()) {
-			if (rs.getInt("prod_ID") == pid) {
-				productName = rs.getString("prod_Name");
-				prodectPrice = rs.getInt("prod_Price");
-				productDeliv = rs.getString("prod_Deliv");
-			}
+			arrID[cnt] = rs.getString("prod_ID");
+			arrName[cnt] = rs.getString("prod_Name");
+			arrPrice[cnt] = rs.getInt("prod_Price");
+			arrDeliv[cnt] = rs.getString("prod_Deliv");
+			allPrice += arrPrice[cnt];
+			cnt++;
 		}
-		String cmd = String.format("insert into bucket(prod_ID, prod_Name, prod_Price, prod_deliv) values('%d', '%s', '%d', '%s');"
-		, pid, productName, prodectPrice, productDeliv);
+		String cmd = String.format("insert into purchase (select * from bucket);");
+		String cmd2 = String.format("delete from bucket;");
 		
 		int rowNum = stmt.executeUpdate(cmd);
+		stmt.executeUpdate(cmd2);
 		if(rowNum<1)
 			throw new Exception("DB에 입력불가");
 		
+		response.sendRedirect(url);
 		
 	} finally {
 		try {
@@ -44,7 +51,5 @@
 		} catch (Exception ignored) {
 		}
 	}
-	
-    response.sendRedirect("bucket.jsp");
 
 %>

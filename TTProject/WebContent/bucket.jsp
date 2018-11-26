@@ -195,8 +195,11 @@ h3.title {
 				<td height="20" border="0">
 					<table width="960px">
 						<tr>
-							<td align="right"><%=id%><a href=<%=logUrl%>><%=logText%></a>
-								| <a href="#">회원가입</a> | <a href="#">장바구니</a> | <a href="#">주문/배송조회</a>
+							<td align="right">
+							<%=id %><a href=<%=logUrl %>><%=logText %></a>
+								 | <a href="/TTProject/registration.html">회원가입</a> 
+								 | <a href="/TTProject/bucket.jsp">장바구니</a> 
+								 | <a href="/TTProject/purchase.jsp">주문/배송조회</a>
 							</td>
 						</tr>
 					</table>
@@ -288,7 +291,7 @@ h3.title {
 			
 
 			<div>
-				<form action=purchase.jsp>
+				<form action=addPurchase.jsp>
 					<br>
 					<table>
 						<tr>
