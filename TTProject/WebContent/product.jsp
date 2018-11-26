@@ -352,7 +352,9 @@ h3.pakage {
 	</div>
 	<div id="footer">
 		<div class="copyright">COPYRIGHTⓒ2018 Cha Hae Wun for
-			WebProject. ALL rights reserved.</div>
+			WebProject. ALL rights reserved.
+		<div>상기 이미지는 (주)탁구존의 이미지를 가져온 것입니다.</div>
+		</div>
 	</div>
 </body>
 </html>

@@ -285,12 +285,21 @@ h3.title {
 					</tr>
 				</tfoot>
 			</table>
+			
 
-			<hr />
-			<div class="btnexp">
+			<div>
 				<form action=mainpage.jsp>
+					<br>
+					<table>
+						<tr>
+							<th>배송지 입력 : <input type=text name=House size=60></th>
+						</tr>
+					</table>
+					<hr />
+					<div class="btnexp">
 					<input class="btn_buy" type="submit" value="최종구매하기">
 					<input class="btn_back" type="button" value="이전으로 돌아가기" onClick="history.go(-1)">
+					</div>
 				</form>
 			</div>
 		</div>
