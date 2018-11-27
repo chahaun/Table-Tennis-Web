@@ -263,31 +263,31 @@ h3.pakage {
 						<a href="/TTProject/notice.html">공지사항</a>
 					</div>
 				</li>
-				<li class="menu1"><a href="/TTProject/productList.jsp?ProdID=1">펜홀더 라켓</a>
+				<li class="menu1"><a href="/TTProject/productList.jsp?ProdID=1">초급용 라켓</a>
 					<div class="content1">
 						<a href="/TTProject/product.jsp?ProdID=3">코르벨</a> 
 						<a href="/TTProject/product.jsp?ProdID=4">프리모락</a> 
 						<a href="/TTProject/product.jsp?ProdID=5">티모볼ALC</a>
 					</div>
 				</li>
-				<li class="menu1"><a href="#">쉐이크 라켓</a>
+				<li class="menu1"><a href="/TTProject/productList.jsp?ProdID=2">고급용 라켓</a>
 					<div class="content1">
 						<a href="/TTProject/product.jsp?ProdID=2">제논</a> 
 						<a href="/TTProject/product.jsp?ProdID=3">코르벨</a> 
 						<a href="/TTProject/product.jsp?ProdID=5">티모볼ALC</a>
 					</div>
 				</li>
-				<li class="menu1"><a href="#">중국펜 라켓</a>
+				<li class="menu1"><a href="/TTProject/productList.jsp?ProdID=3">러버 + 라켓</a>
 					<div class="content1">
 						<a href="/TTProject/product.jsp?ProdID=3">코르벨</a> 
 						<a href="/TTProject/product.jsp?ProdID=4">프리모락</a> 
 						<a href="/TTProject/product.jsp?ProdID=5">티모볼ALC</a>
 					</div>
 				</li>
-				<li class="menu1"><a href="#">탁구러버</a></li>
-				<li class="menu1"><a href="#">탁구공</a></li>
-				<li class="menu1"><a href="#">의류&탁구화</a></li>
-				<li class="menu1"><a href="#">탁구대</a></li>
+				<li class="menu1"><a href="/TTProject/tempPage.jsp">인기제품</a></li>
+				<li class="menu1"><a href="/TTProject/tempPage.jsp">탁구공</a></li>
+				<li class="menu1"><a href="/TTProject/tempPage.jsp">의류&탁구화</a></li>
+				<li class="menu1"><a href="/TTProject/tempPage.jsp">탁구대</a></li>
 			</ul>
 		</div>
 		<!-- 메뉴바 종료 -->

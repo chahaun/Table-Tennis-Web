@@ -1,14 +1,11 @@
-<%@page contentType="text/html; charset=euc-kr" errorPage= "purchaseError.jsp"%>
+<%@page contentType="text/html; charset=euc-kr" isErrorPage="true"%>
 <%@page import="java.sql.*"%>
-<%@page import="java.net.*"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib prefix= "fmt" uri= "http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=euc-kr">
-<title>장바구니</title>
+<title>구매 에러페이지</title>
 <style>
 a {
 	text-decoration: none;
@@ -32,10 +29,6 @@ div {
 #title {
 	margin-top: 20px;
 	margin-bottom: 20px;
-}
-
-#explain img {
-	display: block;
 }
 
 #footer {
@@ -90,19 +83,6 @@ h3.title {
 	color: darkslategray;
 }
 
-.btn_buy {
-	font-weight: bold;
-	background-color: red;
-	vertical-align: middle;
-	font-size: 20px;
-	color: #ffffff;
-	width: 196px;
-	height: 60px;
-	border-color: #659dab;
-	border-width: 2px;
-	border-style: solid;
-}
-
 .btn_back {
 	font-weight: bold;
 	background-color: #ffffff;
@@ -150,46 +130,7 @@ h3.title {
 			logText = "로그인";
 			logUrl = "/TTProject/login.html";
 		}
-		Connection conn = null;
-		Statement stmt = null;
-		Cookie[] cookies = request.getCookies();
-		//try {
-			Class.forName("com.mysql.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/shopping?serverTimezone=UTC", "root", "1234");
-			if (conn == null)
-				out.println("연결불가<BR>");
-			stmt = conn.createStatement(); // statement 객체호출
-			String house = getCookieValue(cookies, "House");
-			String arrID[] = new String[20];
-			String arrName[] = new String[20];
-			int arrPrice[] = new int[20];
-			String arrDeliv[] = new String[20];
-			int allPrice = 0;
-			int cnt=0;
-			ResultSet rs = stmt.executeQuery("select * from purchase");
-			while (rs.next()) {
-				arrID[cnt] = rs.getString("prod_ID");
-				arrName[cnt] = rs.getString("prod_Name");
-				arrPrice[cnt] = rs.getInt("prod_Price");
-				arrDeliv[cnt] = rs.getString("prod_Deliv");
-				allPrice += arrPrice[cnt];
-				cnt++;
-			}
-			
-			/*
-		} finally {
-			try {
-				//stmt.close();
-			} catch (Exception ignored) {
-			}
-			try {
-				//conn.close();
-			} catch (Exception ignored) {
-			}
-		}
-		*/
 	%>
-	<%int i=0; %>
 	<!-- 헤더 시작 -->
 	<div id="container">
 		<table width="100%" border="0">
@@ -214,8 +155,7 @@ h3.title {
 		<div id="header">
 			<header>
 				<div class="inner">
-					<a href="/TTProject/mainpage.jsp"><h1 class="logo">Ping-Pong
-							Market</h1></a>
+					<a href="/TTProject/mainpage.jsp"><h1 class="logo">Ping-Pong Market</h1></a>
 				</div>
 			</header>
 		</div>
@@ -259,39 +199,11 @@ h3.title {
 		<!-- 메뉴바 종료 -->
 
 		<div id="title">
-			<h3>구매완료</h3>
+			<hr />
+			<h3>현재 개발중인 페이지 입니다...!!</h3>
 		</div>
 
 		<div id="mainlist">
-			<hr />
-			<table border=0>
-				<thead>
-					<tr bgcolor="#1DDB16">
-						<th>상품번호</th>
-						<th width = 270px>상품명</th>
-						<th width = 270px>상품 가격</th>
-						<th width = 270px>배송비</th>
-					</tr>
-				</thead>
-				
-				<c:forEach var="ii" begin="1" end="<%=cnt %>">
-					<tr>
-						<th><%=arrID[i] %></th>
-						<th><%=arrName[i] %></th>
-						<th><fmt:formatNumber value="<%=arrPrice[i]%>" pattern="###,###"/></th>
-						<th><%=arrDeliv[i] %></th>
-					</tr>
-					<% i++; %>
-				</c:forEach>
-				
-				<tfoot>
-					<tr bgcolor="#1DDB16">
-						<th width = 800px colspan="3">배송지 : <%=URLDecoder.decode(house)%></th>
-						<th>총 가격 : <fmt:formatNumber value="<%=allPrice%>" pattern="###,###"/>원</th>
-					</tr>
-				</tfoot>
-			</table>
-			<a href="/TTProject/deletePurchase.jsp">구매목록 삭제</a>
 			<hr />
 			
 			<div>
@@ -310,16 +222,3 @@ h3.title {
 	</div>
 </body>
 </html>
-
- <%!
-	private String getCookieValue(Cookie[] cookies, String name) {
-		String value = null;
-		if (cookies == null)
-			return null;
-		for (Cookie cookie : cookies) {
-			if (cookie.getName().equals(name))
-				return cookie.getValue();
-			}
-		return null;
-	}
- %>
