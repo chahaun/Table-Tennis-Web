@@ -1,12 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"%>
 <%@page import="java.sql.*"%>
+<%@page import="java.net.*"%>
 <%
 	request.setCharacterEncoding("euc-kr");
 	Connection conn = null;
 	Statement stmt = null;
-	
-	String productId = (String)session.getAttribute("P_ID");
 	
 	try {
 		Class.forName("com.mysql.jdbc.Driver");
@@ -15,7 +13,8 @@
 			throw new Exception("DB 연결불가");
 		stmt = conn.createStatement(); // statement 객체호출
 		String house = request.getParameter("House");
-		String url = "purchase.jsp?House="+house;
+		response.addCookie(new Cookie("House", URLEncoder.encode(house)));
+		
 		String arrID[] = new String[20];
 		String arrName[] = new String[20];
 		int arrPrice[] = new int[20];
@@ -36,10 +35,10 @@
 		
 		int rowNum = stmt.executeUpdate(cmd);
 		stmt.executeUpdate(cmd2);
-		if(rowNum<1)
+		if(rowNum<0)
 			throw new Exception("DB에 입력불가");
 		
-		response.sendRedirect(url);
+		response.sendRedirect("purchase.jsp");
 		
 	} finally {
 		try {
