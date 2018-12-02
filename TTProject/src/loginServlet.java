@@ -39,6 +39,12 @@ public class loginServlet extends HttpServlet {
 		            script.println("history.back()");
 		            script.println("</script>");
 		        }
+	        } else { // 로그인 실패
+	        	PrintWriter script = response.getWriter();
+	            script.println("<script>");
+	            script.println("alert('아이디가 틀립니다.')");
+	            script.println("history.back()");
+	            script.println("</script>");
 	        }
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
